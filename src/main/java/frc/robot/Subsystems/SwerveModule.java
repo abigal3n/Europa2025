@@ -149,6 +149,9 @@ public class SwerveModule {
                 driveConfig.encoder
                         .positionConversionFactor(drivePositionConversionFactor)
                         .velocityConversionFactor(drivePositionConversionFactor/60);
+                driveConfig.closedLoop
+                        .pid(1, 0, 0.1)
+                        .outputRange(-1,1);
                 driveMotor.configure(driveConfig, SparkBase.ResetMode.kNoResetSafeParameters, SparkBase.PersistMode.kPersistParameters);
 
                 turningEncoder = turningMotor.getEncoder();
@@ -226,7 +229,7 @@ public class SwerveModule {
                                 ((state.speedMetersPerSecond / Constants.DriveConstants.MaxVelocityMetersPerSecond)
                                                 * 12) + fff);
 
-                pidController.setReference(state.angle.getRadians(), ControlType.kPosition);
+                pidController.setReference(state.angle.getRadians(),ControlType.kPosition);
         }
 
         public SwerveModuleState optimizeModuleState(SwerveModuleState rawState) {
