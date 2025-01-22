@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.path.PathConstraints;
+
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
@@ -32,6 +36,8 @@ public final class Constants {
     public static double kMaxAccelerationMetersPerSecondSquared = 4;
     public static Constraints kThetaControllerConstraints = new Constraints(
         DriveConstants.MaxAngularVelocityRadiansPerSecond * .5, (Math.PI * 2) / 2);
+        
+    public static PathConstraints constantConstraints = new PathConstraints(2.5,2,2.5*Math.PI,3*Math.PI);
 
   }
 
@@ -103,5 +109,21 @@ public final class Constants {
 
   public static final class OIConstants {
     public static final int kDriverControllerPort = 0;
+  }
+
+  public static final class WaypointConstants {
+    
+    static Pose2d CoralStationLeft = new Pose2d(11.5, 6.5, new Rotation2d(125));
+    static Pose2d CoralStationRight = new Pose2d(2, 1.7, new Rotation2d(-125));
+    static Pose2d ReefN = new Pose2d(6.3, 4.1, new Rotation2d(125));
+    static Pose2d ReefS = new Pose2d(2.7, 4.1, new Rotation2d(-125));
+    static Pose2d ReefSE = new Pose2d(3.6, 2.5, new Rotation2d(58));
+    static Pose2d ReefSW = new Pose2d(3.6, 5.67, new Rotation2d(-58));
+    static Pose2d ReefNE = new Pose2d(5.5, 2.4, new Rotation2d(-122));
+    static Pose2d ReefNW = new Pose2d(5.5, 5.8, new Rotation2d(122));
+    static Pose2d Processor = new Pose2d(6.35,1.55, new Rotation2d(-90));
+
+    public static Pose2d[] mposeArray = {CoralStationLeft, CoralStationRight, ReefN, ReefS, ReefSE, ReefSW, ReefNE, ReefNW, Processor};
+
   }
 }
