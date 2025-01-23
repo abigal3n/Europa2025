@@ -1,6 +1,9 @@
 package frc.robot.Subsystems;
 
+import com.revrobotics.spark.config.SparkMaxConfig;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class AlgaeSub extends SubsystemBase{
     //motors
@@ -8,11 +11,26 @@ public class AlgaeSub extends SubsystemBase{
     // pincher2
     // pivotmotor
 
+    public SparkMaxConfig configAlgaeMotor(boolean Inverted){
+        SparkMaxConfig config = new SparkMaxConfig();
+            config
+            .inverted(Inverted)
+            .idleMode(SparkMaxConfig.IdleMode.kBrake);
+
+        return config;
+    }
+    
     public AlgaeSub() {
-        //pincher2.setInverted();
+
+        SparkMaxConfig configOne = configAlgaeMotor(true);
+        SparkMaxConfig configTwo = configAlgaeMotor(false);
+
+        //pincher1.configure(configOne, SparkMax.ResetMode.kResetSafeParameter, SparkMax.PersistMode.kNoPersistParameters)
+        //pincher2.configure(configTwo, SparkMax.ResetMode.KResetSafeParameter, SparkMAx.PersistMode.kNoPersistParameters)
+      
     }
 
-    //ok plan
+    //ok plan a
     //methods
     //  grab()
     //      pincher1.set(0.5)
@@ -44,6 +62,6 @@ public class AlgaeSub extends SubsystemBase{
     //      pincher1.set(-0.5)
     //  stop()
     //      pincher1.set(0)
-    //      pincher2,set(0)
+    //      pincher2.set(0)
 
 }

@@ -5,6 +5,7 @@
 package frc.robot;
 
 import com.pathplanner.lib.path.PathConstraints;
+import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -38,6 +39,8 @@ public final class Constants {
         DriveConstants.MaxAngularVelocityRadiansPerSecond * .5, (Math.PI * 2) / 2);
         
     public static PathConstraints constantConstraints = new PathConstraints(2.5,2,2.5*Math.PI,3*Math.PI);
+
+    
 
   }
 
