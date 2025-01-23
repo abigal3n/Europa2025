@@ -12,7 +12,12 @@ public class CoralArm extends SubsystemBase{
     }
 
     private final PIDController coralPivotPID = new PIDController(0, 0, 0);
+   
     
+    @Override
+    public void periodic() {
+        //coralPivotMotor.set(pivot controller. calculate)
+    }
     //methods
     //in
     public void intakeCoral(){
@@ -25,6 +30,8 @@ public class CoralArm extends SubsystemBase{
 
     public void pivotCoralArm(){
         //have it accept a setpoint
+        //closed loop controller
+        //have method to set setpoint
     }
 
 

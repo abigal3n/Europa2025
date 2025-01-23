@@ -26,5 +26,8 @@ public class ClimbSub extends SubsystemBase{
         //pushArm.configure(climbConfig, SparkMax.ResetMode.kResetSafeParameter, SparkMax.PersistMode.kNoPersistParameters)
     }
 
-    
+    //i wonder still
+    //we could have it push down until it reaches a setpoint
+    //or have the pull up initiated as the driver presses a button then have it freeze in place when not being moved
+    //that way the drivers can tell it when to stop
 }

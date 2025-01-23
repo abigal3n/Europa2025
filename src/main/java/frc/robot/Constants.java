@@ -129,4 +129,25 @@ public final class Constants {
     public static Pose2d[] mposeArray = {CoralStationLeft, CoralStationRight, ReefN, ReefS, ReefSE, ReefSW, ReefNE, ReefNW, Processor};
 
   }
+
+  public static final class SetpointConstants {
+    //here is where we keep all the setpoints for the subsystem pid
+
+    //Elevator
+      //lowest level
+      //L1
+      //L2
+      //L3
+      //L4
+      //public double[] mElevatorSetpointArray = {setpoints}
+
+    //Coral Arm
+      //Deposit
+      //Hold point
+      //grab? like where it will be when grabbing coral from the station
+      //publuc double[] mCoralSetpointArray = {setpoints}
+
+    //
+
+  }
 }
