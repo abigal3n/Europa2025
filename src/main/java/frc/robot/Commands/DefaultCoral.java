@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Subsystems.CoralArm;
 
 public class DefaultCoral extends Command{
-    private Joystick primaryJoystick = new Joystick(0);
-    private XboxController secondController = new XboxController(1);
+    private final Joystick primaryJoystick;
+    private final XboxController secondController;
     CoralArm coralArm;
 
     public DefaultCoral(CoralArm coralArm, Joystick primaryJoystick, XboxController secondController){
@@ -18,6 +18,21 @@ public class DefaultCoral extends Command{
     }
 
     //what is the meaning of this
+
+    public void intakeCoral(){
+        while(!coralArm.hasCoral()){
+            coralArm.intakeCoral();
+        }
+        coralArm.stopCoralRoller();
+    }
+
+    public void releaseCoral(){
+        while(coralArm.hasCoral()){
+            coralArm.releaseCoral();
+        }
+        coralArm.stopCoralRoller();
+    }
+
 
     //methods
         //when get some button

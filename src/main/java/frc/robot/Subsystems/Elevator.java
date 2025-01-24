@@ -19,7 +19,7 @@ public class Elevator extends SubsystemBase{
         //arm.set(-MathUtil.clamp(armPID.calculate(/* arm */arm2.getDistance()), -1, 1));
     }
 
-    public setElevatorLevels(int choice){
+   // public setElevatorLevels(int choice){
         //double elevatorSetpoint = Constants.SetpointConstants.mElevatorSetpointArray[choice];
-    }
+   // }
 }

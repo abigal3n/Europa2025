@@ -141,13 +141,18 @@ public final class Constants {
       //L4
       //public double[] mElevatorSetpointArray = {setpoints}
 
-    //Coral Arm
-      //Deposit
-      //Hold point
-      //grab? like where it will be when grabbing coral from the station
-      //publuc double[] mCoralSetpointArray = {setpoints}
+    //Coral Arm Pivot Angles
+      //angle of release
+        //L1 angle
+        //L2 and L3 Angle
+        //L4 Angle
+      //Hold angle
+      //grab angle? like where it will be when grabbing coral from the station
+      //public double[] mCoralSetpointArray = {setpoints}
 
-    //
+    //Algae Angles
+      //angle for grabbing and releasing algae
+      //angle for holding Algae
 
   }
 }
