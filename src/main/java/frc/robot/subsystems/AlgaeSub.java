@@ -1,4 +1,4 @@
-package frc.robot.Subsystems;
+package frc.robot.subsystems;
 
 import com.revrobotics.spark.config.SparkMaxConfig;
 
@@ -10,6 +10,7 @@ public class AlgaeSub extends SubsystemBase{
     // pincher1
     // pincher2
     // pivotmotor
+    double algaeArmSetpoint;
 
     public SparkMaxConfig configAlgaeMotor(boolean Inverted){
         SparkMaxConfig config = new SparkMaxConfig();
@@ -45,7 +46,6 @@ public class AlgaeSub extends SubsystemBase{
     public void release(){
         // pinch1.set(-0.5)
         // pinch2.set(-0.5)
-
     }
     //
     public void stop(){
@@ -56,6 +56,10 @@ public class AlgaeSub extends SubsystemBase{
     public void tilt(){
         //have the joystick inputs change the setpoint of the pivot motor
         //may require pivot pid
+    }
+
+    public void setAlgaeSetpoint(double setpoint){
+        algaeArmSetpoint = setpoint;
     }
     //  release()
     //      pincher2.set(-0.5)

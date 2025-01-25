@@ -1,4 +1,4 @@
-package frc.robot.Subsystems;
+package frc.robot.subsystems;
 
 import com.studica.frc.AHRS;
 import com.studica.frc.AHRS.NavXComType;

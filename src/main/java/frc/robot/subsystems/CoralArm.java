@@ -1,4 +1,4 @@
-package frc.robot.Subsystems;
+package frc.robot.subsystems;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -8,6 +8,8 @@ public class CoralArm extends SubsystemBase{
     //motors
         //coralpivotmotor
         //wheelmotor
+    double coralArmSetpoint;
+
     public CoralArm(){
 
     }
@@ -36,8 +38,9 @@ public class CoralArm extends SubsystemBase{
         
     }
 
-    public void setCoralWristSetpoint(int index){
+    public void setCoralWristSetpoint(double setpoint){
         //setpoint = Constants.SetpointConstants.coralSetpointArray[index]
+        coralArmSetpoint = setpoint;
     }
 
     public boolean hasCoral(){
