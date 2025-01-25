@@ -8,40 +8,40 @@ public class CoralArm extends SubsystemBase{
     //motors
         //coralpivotmotor
         //wheelmotor
-    double coralArmSetpoint;
-
-    public CoralArm(){
-
-    }
-
-    private final PIDController coralPivotPID = new PIDController(0, 0, 0);
-   
+    static double coralArmSetpoint;
     
-    @Override
-    public void periodic() {
-        //coralPivotMotor.set(pivot controller. calculate)
-    }
-    //methods
-    //in
-    public void intakeCoral(){
-        //wheel.set(0.5)
-    }
-
-    public void releaseCoral(){
-        //wheel.set(0.5)
-    }
-
-    public void pivotCoralArm(){
-        //have it accept a setpoint
-        //closed loop controller
-        //have method to set setpoint
+        public CoralArm(){
+    
+        }
+    
+        private final PIDController coralPivotPID = new PIDController(0, 0, 0);
+       
         
-    }
-
-    public void setCoralWristSetpoint(double setpoint){
-        //setpoint = Constants.SetpointConstants.coralSetpointArray[index]
-        coralArmSetpoint = setpoint;
-    }
+        @Override
+        public void periodic() {
+            //coralPivotMotor.set(pivot controller. calculate)
+        }
+        //methods
+        //in
+        public void intakeCoral(){
+            //wheel.set(0.5)
+        }
+    
+        public void releaseCoral(){
+            //wheel.set(0.5)
+        }
+    
+        public void pivotCoralArm(){
+            //have it accept a setpoint
+            //closed loop controller
+            //have method to set setpoint
+            
+        }
+    
+        public static void setCoralWristSetpoint(double setpoint){
+            //setpoint = Constants.SetpointConstants.coralSetpointArray[index]
+            coralArmSetpoint = setpoint;
+        }
 
     public boolean hasCoral(){
         //true if has coral
