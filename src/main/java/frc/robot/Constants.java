@@ -197,10 +197,35 @@ public final class Constants {
     // angle for holding Algae
     public class OptionArrays {
 
-      public static double[] l1 = { ArmPivotAngles.l1, ElevatorSetpoints.l1, XOffset.l1, YOffset.l1, RotOffset.l1,
-          AlgaeArmAngles.down };
-      public static double[] l2Left = { ArmPivotAngles.lmid, ElevatorSetpoints.l2, XOffset.left, YOffset.Reef,
-          RotOffset.none, AlgaeArmAngles.down };
+      public class ConfigOption{
+
+        double coralAngle;
+        double elevatorSetpoint;
+        double algaeAngle;
+
+        public ConfigOption(double coralAngle, double elevatorSetpoint, double algaeAngle){
+
+          this.coralAngle = coralAngle;
+          this.elevatorSetpoint = elevatorSetpoint;
+          this.algaeAngle = algaeAngle;
+
+        }
+
+      }
+
+      public ConfigOption l1 = new ConfigOption(ArmPivotAngles.l1, ElevatorSetpoints.l1, AlgaeArmAngles.down);
+      public ConfigOption l2Left = new ConfigOption(ArmPivotAngles.lmid, ElevatorSetpoints.l2, AlgaeArmAngles.down);
+      
+      public ConfigOption = new ConfigOption(ArmPivotAngles, ElevatorSetpoints, AlgaeArmAngles);
+      public ConfigOption = new ConfigOption(ArmPivotAngles, ElevatorSetpoints, AlgaeArmAngles);
+      public ConfigOption = new ConfigOption(ArmPivotAngles, ElevatorSetpoints, AlgaeArmAngles);
+      public ConfigOption = new ConfigOption(ArmPivotAngles, ElevatorSetpoints, AlgaeArmAngles);
+      public ConfigOption = new ConfigOption(ArmPivotAngles, ElevatorSetpoints, AlgaeArmAngles);
+      // public static double[] l1 = { ArmPivotAngles.l1, ElevatorSetpoints.l1, XOffset.l1, YOffset.l1, RotOffset.l1,
+      
+         // AlgaeArmAngles.down };
+      //public static double[] l2Left = { ArmPivotAngles.lmid, ElevatorSetpoints.l2, XOffset.left, YOffset.Reef,
+       //   RotOffset.none, AlgaeArmAngles.down };
       public static double[] l3Left = { ArmPivotAngles.lmid, ElevatorSetpoints.l3, XOffset.left, YOffset.Reef,
           RotOffset.none, AlgaeArmAngles.down };
       public static double[] l4Left = { ArmPivotAngles.l4, ElevatorSetpoints.l4, XOffset.left, YOffset.Reef,
@@ -220,7 +245,7 @@ public final class Constants {
       public static double[] AlgaeHigh = { ArmPivotAngles.Out, ElevatorSetpoints.l4, XOffset.none, YOffset.Algae,
           RotOffset.none, AlgaeArmAngles.up };
 
-      List<double[]> positionList = new ArrayList<double[]>();
+      List<ConfigOption> positionList = new ArrayList<ConfigOption>();
 
       OptionArrays() {
         positionList.add(l1); //0

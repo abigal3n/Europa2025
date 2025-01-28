@@ -36,9 +36,9 @@ public class ConfigSystem extends Command {
 
         CoralArm.setCoralWristSetpoint(optionArray[0]);
         Elevator.setElevatorLevels(optionArray[1]);
-        //aprilTagAlign.setXOffset(optionArray[2]);
-        //aprilTagAlign.setYOffset(optionArray[3]);
-        //aprilTagAlign.setRotOffset(optionArray[4]);
+        //Align.setXOffset(optionArray[2]);
+        //Align.setYOffset(optionArray[3]);
+        //Align.setRotOffset(optionArray[4]);
         AlgaeSub.setAlgaeSetpoint(optionArray[5]);
 
     }
