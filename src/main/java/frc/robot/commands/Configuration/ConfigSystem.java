@@ -5,6 +5,7 @@ import java.util.List;
 import edu.wpi.first.apriltag.AprilTag;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.SetpointConstants.OptionArrays;
+import frc.robot.Constants.SetpointConstants.OptionArrays.ConfigOption;
 import frc.robot.subsystems.AlgaeSub;
 import frc.robot.subsystems.CoralArm;
 import frc.robot.subsystems.Elevator;
@@ -12,13 +13,13 @@ import frc.robot.subsystems.Elevator;
 public class ConfigSystem extends Command {
 
     int choice;
-    List<double[]> positionList;
+    List<ConfigOption> positionList;
 
     CoralArm coralArm;
     Elevator elevatorSub;
     AlgaeSub algaeSub;
 
-    public ConfigSystem(List<double[]> positionList, CoralArm coralArm, Elevator elevatorSub, AlgaeSub algaeSub) {
+    public ConfigSystem(List<ConfigOption> positionList, CoralArm coralArm, Elevator elevatorSub, AlgaeSub algaeSub) {
 
         addRequirements(coralArm);
         addRequirements(elevatorSub);
@@ -32,9 +33,9 @@ public class ConfigSystem extends Command {
     }
 
     public void Configure(int choice) {
-        double[] optionArray = positionList.get(choice);
+        ConfigOption configOption  = positionList.get(choice);
 
-        CoralArm.setCoralWristSetpoint(optionArray[0]);
+        CoralArm.setCoralWristSetpoint(configOption.);
         Elevator.setElevatorLevels(optionArray[1]);
         //Align.setXOffset(optionArray[2]);
         //Align.setYOffset(optionArray[3]);
