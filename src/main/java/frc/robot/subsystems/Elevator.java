@@ -41,10 +41,8 @@ public class Elevator extends SubsystemBase{
 
         public Elevator() {
 
-            elevatorConfig1 = configElevatorMotor(false, 0, 0, 0);
-            elevatorConfig2 = configElevatorMotor(false, 0, 0, 0);
-            elevator1.configure(elevatorConfig1, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
-            elevator2.configure(elevatorConfig2,ResetMode.kResetSafeParameters,PersistMode.kNoPersistParameters);
+            Constants.configPIDMotor(elevator1,false, 0, 0, 0);
+            Constants.configPIDMotor(elevator2,false, 0, 0, 0);
 
             elevatorController = elevator1.getClosedLoopController();
             elevatorController.setReference(elevatorSetpoint,ControlType.kMAXMotionPositionControl);

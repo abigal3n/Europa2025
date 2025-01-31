@@ -1,7 +1,11 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.ControlType;
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.math.controller.PIDController;
@@ -14,23 +18,9 @@ public class CoralArm extends SubsystemBase{
         //wheelmotor
     SparkMaxConfig coralWristConfig;
     SparkMaxConfig coralWheelConfig;
-    public SparkMaxConfig configCoralWrist(boolean Inverted, double kP, double kI, double kD){
-            SparkMaxConfig config = new SparkMaxConfig();
-                config
-                .inverted(Inverted)
-                .idleMode(SparkMaxConfig.IdleMode.kBrake);
-                config.closedLoop
-                .pid(kP, kI, kD)
-                .outputRange(-1,1);
-            return config;
-        }
-    public SparkMaxConfig configCoralWheel(boolean Inverted){
-            SparkMaxConfig config = new SparkMaxConfig();
-                config
-                .inverted(Inverted)
-                .idleMode(SparkMaxConfig.IdleMode.kBrake);
-            return config;
-        }
+    SparkClosedLoopController coralWristController;
+
+    //sensor coralSensor = new Sensor();
     
     private static double coralArmSetpoint;
 
@@ -38,24 +28,26 @@ public class CoralArm extends SubsystemBase{
     SparkMax coralWrist = new SparkMax(0,MotorType.kBrushless);
 
         public CoralArm(){
-            coralWristConfig = configCoralWrist(false, 0, 0,0);
-            coralWheelConfig = configCoralWheel(true);
+            Constants.configPIDMotor(coralWrist, false, 0, 0,0);
+            Constants.configMotor(coralWheel, true);
+
+            coralWristController = coralWrist.getClosedLoopController();
+            coralWristController.setReference(coralArmSetpoint,ControlType.kMAXMotionPositionControl);
         }
     
         public void intakeCoral(){
-            //wheel.set(0.5)
+            coralWheel.set(0.5);
         }
     
         public void releaseCoral(){
-            //wheel.set(-0.5)
+            coralWheel.set(-0.5);
         }
 
         public void stopCoralRoller(){
-            //wheel.set(0)
+            coralWheel.set(0);
         }
     
         public static void setCoralWristSetpoint(double setpoint){
-            //setpoint = Constants.SetpointConstants.coralSetpointArray[index]
             coralArmSetpoint = setpoint;
         }
 

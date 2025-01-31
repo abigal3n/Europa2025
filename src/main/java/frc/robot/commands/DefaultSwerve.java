@@ -45,6 +45,7 @@ public class DefaultSwerve extends Command {
         xSpeed = signedPow(xSpeed, 2);
         ySpeed = signedPow(ySpeed, 2);
         rot = signedPow(rot, 2);
+
         if (!joy.getTrigger()) {
             xSpeed *= 0.5;
             ySpeed *= 0.5;

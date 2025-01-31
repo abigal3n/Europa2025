@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pathplanner.lib.path.PathConstraints;
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.math.geometry.Pose2d;
@@ -48,6 +51,25 @@ public final class Constants {
   }
 
   public static final ModuleConfiguration ModuleType = SdsModuleConfigurations.MK4I_L1;
+
+  
+  public static void configPIDMotor(SparkMax motor, boolean Inverted, double kP, double kI, double kD){
+        SparkMaxConfig config = new SparkMaxConfig();
+            config
+            .inverted(Inverted)
+            .idleMode(SparkMaxConfig.IdleMode.kBrake);
+            config.closedLoop
+            .pid(kP, kI, kD)
+            .outputRange(-1,1);
+        motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
+    }
+  public static void configMotor(SparkMax motor, boolean Inverted){
+      SparkMaxConfig config = new SparkMaxConfig();
+          config
+          .inverted(Inverted)
+          .idleMode(SparkMaxConfig.IdleMode.kBrake);
+      motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
+  }
 
   public static final class DriveConstants {
     public static final double kDrivePeriod = TimedRobot.kDefaultPeriod;

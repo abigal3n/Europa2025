@@ -20,32 +20,12 @@ public class AlgaeSub extends SubsystemBase{
     // pivotmotor
 
     static double algaeArmSetpoint;
-    
-        public SparkMaxConfig configAlgaeWrist(boolean Inverted, double kP, double kI, double kD){
-            SparkMaxConfig config = new SparkMaxConfig();
-                config
-                .inverted(Inverted)
-                .idleMode(SparkMaxConfig.IdleMode.kBrake);
-                config.closedLoop
-                .pid(kP, kI, kD)
-                .outputRange(-1,1);
-            return config;
-        }
-        public SparkMaxConfig configAlgaeMotor(boolean Inverted){
-            SparkMaxConfig config = new SparkMaxConfig();
-                config
-                .inverted(Inverted)
-                .idleMode(SparkMaxConfig.IdleMode.kBrake);
-            return config;
-        }
 
 
         public AlgaeSub() {
     
-            SparkMaxConfig configWrist = configAlgaeWrist(true, 0,0,0);
-            SparkMaxConfig configSpin = configAlgaeMotor(false);
-            algaeWrist.configure(configWrist, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kNoPersistParameters);
-            algaeSpinMotor.configure(configSpin, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kNoPersistParameters);
+            Constants.configPIDMotor(algaeWrist,true, 0,0,0);
+            Constants.configMotor(algaeSpinMotor, false);
           
             algaeWristController = algaeWrist.getClosedLoopController();
             algaeWristController.setReference(algaeArmSetpoint, ControlType.kMAXMotionPositionControl);
