@@ -35,15 +35,9 @@ public class ConfigSystem extends Command {
     public void Configure(int choice) {
         ConfigOption configOption  = positionList.get(choice);
 
-        CoralArm.setCoralWristSetpoint(configOption.);
-        Elevator.setElevatorLevels(optionArray[1]);
-        //Align.setXOffset(optionArray[2]);
-        //Align.setYOffset(optionArray[3]);
-        //Align.setRotOffset(optionArray[4]);
-        AlgaeSub.setAlgaeSetpoint(optionArray[5]);
-
+        CoralArm.setCoralWristSetpoint(configOption.coralAngle);
+        Elevator.setElevatorLevels(configOption.elevatorSetpoint);
+        AlgaeSub.setAlgaeSetpoint(configOption.algaeAngle);
     }
-    // option array has (coralSetpoint, elevatorSetpoint, xOffset, yOffset,
-    // rotOffset, algaeSetpoint)
-
+    
 }
